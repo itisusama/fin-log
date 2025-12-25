@@ -5,6 +5,7 @@ const characterSchema = new mongoose.Schema(
   image: {type: String,required: true},
   firstName: {type: String,required: true},
   lastName: {type: String,required: true},
+  alias: {type: String},
   gender: {type: Boolean,required: true},
   dob: {type: Date,required: true},
   zodiac: {type: String,required: true},
