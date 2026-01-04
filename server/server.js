@@ -2,7 +2,7 @@ import express from "express";
 import dotenv from "dotenv";
 import cors from "cors";
 import connectDB from "./config/db.js";
-import router from "./modules/character/route.js";
+import router from "./modules/finance/route.js";
 
 dotenv.config();
 
@@ -16,7 +16,7 @@ app.use(express.json());
 connectDB();
 
 // Routes
-app.use("/api/character", router)
+app.use("/api/finance", router)
 
 // Default route
 app.get("/", (req, res) => {

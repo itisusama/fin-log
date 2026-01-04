@@ -1,41 +1,17 @@
-import { useForm } from "react-hook-form";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { categorySchema, type CategorySchema } from "@/lib/zod-schema";
+import FinanceFactory from "@/factory/finance-factory";
 import { ui } from "@/imports/ui";
-import { useState } from "react";
 
 export default function AddCategory() {
-  const [loading, setLoading] = useState<boolean>(false);
-
-  const form = useForm<CategorySchema>({
-    resolver: zodResolver(categorySchema),
-    defaultValues: {
-      name: "",
-    },
-  });
-
-  async function onSubmit(values: CategorySchema) {
-    //   try {
-    //     setLoading(true);
-    // const success = await loginUser(values);
-    console.log(values);
-    //     if (success) {
-    //       form.reset();
-    //     }
-    //   } finally {
-    //     setLoading(false);
-    //   }
-  }
-
+  const financeFactory = FinanceFactory()
   return (
     <>
-      <ui.Form {...form}>
+      <ui.Form {...financeFactory.categoryform}>
         <form
-          onSubmit={form.handleSubmit(onSubmit)}
+          onSubmit={financeFactory.categoryform.handleSubmit(financeFactory.onCategorySubmit)}
           className="space-y-4"
           noValidate>
           <ui.FormField
-            control={form.control}
+            control={financeFactory.categoryform.control}
             name="name"
             render={({ field }) => (
               <ui.FormItem>
@@ -47,8 +23,8 @@ export default function AddCategory() {
               </ui.FormItem>
             )}
           />
-          <ui.Button type="submit" className="w-full" disabled={loading}>
-            {loading ? "Adding..." : "Add Category"}
+          <ui.Button type="submit" className="w-full" disabled={financeFactory.loading}>
+            {financeFactory.loading ? "Adding..." : "Add Category"}
           </ui.Button>
         </form>
       </ui.Form>

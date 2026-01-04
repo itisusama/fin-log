@@ -10,6 +10,6 @@ export const FORGET = `${AUTH_URL}/forgot-password `;
 export const VERIFY_FORGET_OTP = `${AUTH_URL}/verify-forgot-otp`;
 export const RESET = `${AUTH_URL}/reset-password`
 
-// Character
+// Finance
 export const RESOURCE = `${BASE_URL}/`;
 export const RESOURCE_BY_ID = `${BASE_URL}/:id`;

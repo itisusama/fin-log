@@ -13,6 +13,7 @@ import { Label } from "@/components/ui/label";
 import CardSlot from "@/layouts/slots/card-slot";
 import { Separator } from "@radix-ui/react-dropdown-menu";
 import { Modal } from "@/components/shared/Modal"
+import CategoryCard from "@/components/dashboard/category-cards";
 
 export const ui = {
     Button, MainHeading, Form, 
@@ -23,7 +24,8 @@ export const ui = {
     DropdownMenuLabel, DropdownMenuItem, UserMenu,
     Separator, DashboardHeader, Card, 
     CardHeader, CardContent, CardTitle,
-    DashboardCard, Dialog, Modal
+    DashboardCard, Dialog, Modal,
+    CategoryCard
 }
 
 export const slot = {CardSlot}

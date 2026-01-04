@@ -16,4 +16,5 @@ TASKS:
 - Creating auth function.
 - Creating Auth components
 - creating category page and add modal with form.
-- Getting values from zod form later to pass it to API end point
+- Getting values from zod form later to pass it to API end point.
+- Add fetcher and Query.

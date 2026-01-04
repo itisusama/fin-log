@@ -1,15 +1,15 @@
-import { Character } from './model.js'
+import { Finance } from './model.js'
 
-// @desc    Get all characters
-// @route   GET /api/characters
+// @desc    Get all finances
+// @route   GET /api/finances
 // @access  Public
-export const getCharacters = async (req, res) => {
+export const getFinances = async (req, res) => {
   try {
-    const characters = await Character.find();
+    const finances = await Finance.find();
     res.status(200).json({
       success: true,
-      count: characters.length,
-      data: characters
+      count: finances.length,
+      data: finances
     });
   } catch (error) {
     res.status(500).json({
@@ -19,23 +19,23 @@ export const getCharacters = async (req, res) => {
   }
 };
 
-// @desc    Get single character
-// @route   GET /api/characters/:id
+// @desc    Get single finance
+// @route   GET /api/finances/:id
 // @access  Public
-export const getCharacter = async (req, res) => {
+export const getFinance = async (req, res) => {
   try {
-    const character = await Character.findById(req.params.id);
+    const finance = await Finance.findById(req.params.id);
     
-    if (!character) {
+    if (!finance) {
       return res.status(404).json({
         success: false,
-        error: 'Character not found'
+        error: 'Finance not found'
       });
     }
     
     res.status(200).json({
       success: true,
-      data: character
+      data: finance
     });
   } catch (error) {
     res.status(500).json({
@@ -45,16 +45,16 @@ export const getCharacter = async (req, res) => {
   }
 };
 
-// @desc    Create new character
-// @route   POST /api/characters
+// @desc    Create new finance
+// @route   POST /api/finances
 // @access  Public
-export const createCharacter = async (req, res) => {
+export const createFinance = async (req, res) => {
   try {
-    const character = await Character.create(req.body);
+    const finance = await Finance.create(req.body);
     
     res.status(201).json({
       success: true,
-      data: character
+      data: finance
     });
   } catch (error) {
     res.status(400).json({
@@ -64,12 +64,12 @@ export const createCharacter = async (req, res) => {
   }
 };
 
-// @desc    Update character
-// @route   PUT /api/characters/:id
+// @desc    Update finance
+// @route   PUT /api/finances/:id
 // @access  Public
-export const updateCharacter = async (req, res) => {
+export const updateFinance = async (req, res) => {
   try {
-    const character = await Character.findByIdAndUpdate(
+    const finance = await Finance.findByIdAndUpdate(
       req.params.id,
       req.body,
       {
@@ -78,16 +78,16 @@ export const updateCharacter = async (req, res) => {
       }
     );
     
-    if (!character) {
+    if (!finance) {
       return res.status(404).json({
         success: false,
-        error: 'Character not found'
+        error: 'Finance not found'
       });
     }
     
     res.status(200).json({
       success: true,
-      data: character
+      data: finance
     });
   } catch (error) {
     res.status(400).json({
@@ -97,23 +97,23 @@ export const updateCharacter = async (req, res) => {
   }
 };
 
-// @desc    Delete character
-// @route   DELETE /api/characters/:id
+// @desc    Delete finance
+// @route   DELETE /api/finances/:id
 // @access  Public
-export const deleteCharacter = async (req, res) => {
+export const deleteFinance = async (req, res) => {
   try {
-    const character = await Character.findByIdAndDelete(req.params.id);
+    const finance = await Finance.findByIdAndDelete(req.params.id);
     
-    if (!character) {
+    if (!finance) {
       return res.status(404).json({
         success: false,
-        error: 'Character not found'
+        error: 'Finance not found'
       });
     }
     
     res.status(200).json({
       success: true,
-      message: "deleted succesful"
+      message: "Finance deleted successfully"
     });
   } catch (error) {
     res.status(500).json({
